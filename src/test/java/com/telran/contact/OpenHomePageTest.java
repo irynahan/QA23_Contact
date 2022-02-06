@@ -15,11 +15,14 @@ public class OpenHomePageTest extends TestBase {
         //driver.findElement(By.cssSelector("div:nth-child(2)>div>div"));
         // xpath //div[2]/div/div css div:nth-child(2)>div>div
         //isHomeComponentPresent2(div:nth-child(2)>div>div);
-        isElementPresent(By.cssSelector("div:nth-child(2)>div>div"));
+        //isElementPresent(By.cssSelector("div:nth-child(2)>div>div"));
+        isHomeComponentPresent();
         System.out.println("Home Component:" + isElementPresent(By.cssSelector("div:nth-child(2)>div>div")));
     }
 
-    public boolean isHomeComponentPresent(){
+
+
+    public boolean isHomeComponentPresent1(){
        return driver.findElements(By.cssSelector("div:nth-child(2)>div>div")).size()>0;
     }
 
