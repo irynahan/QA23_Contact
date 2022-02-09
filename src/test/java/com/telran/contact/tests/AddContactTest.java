@@ -1,29 +1,26 @@
-package com.telran.contact;
+package com.telran.contact.tests;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
+import com.telran.contact.model.Contact;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
-import java.util.List;
 
 public class AddContactTest extends TestBase {
 
     @BeforeMethod
     public void ensurePreconditions() {
 
-        if (!isSignOutButtonPresent()) {
-            logIn();
+        if (!app.getHeader().isSignOutButtonPresent()) {
+            app.getUser().logIn();
         }
     }
 
     @Test
     public void addContactPositiveTest() {
 
-        addContact();
+        int i = (int)((System.currentTimeMillis()/1000) % 3600);
+        Contact c = new Contact();
+        app.getContact().addContact(new Contact().setName("Mark7").setLastName("Knorr7").setPhone("123456"+ i).setAddress("adam" + i + "@gm.com").setAddress("Berlin").setDescription("No comments"));
 
         // int i - this variable is used to create a uniq rundom phone number
         //int i = (int) ((System.currentTimeMillis() / 1000) % 3600);
@@ -41,7 +38,7 @@ public class AddContactTest extends TestBase {
         // can be used alternatively, when the button is not displayed
         // version 1 : jumpToFutter(By.cssSelector(".add_form__2rsm2 button"));
         // version 2 : clickWithActions(By.cssSelector(".add_form__2rsm2 button"));
-        Assert.assertTrue(isContactCreated("Mark6"));
+        Assert.assertTrue(app.getContact().isContactCreated("Mark7"));
     }
 
 }

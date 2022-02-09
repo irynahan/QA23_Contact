@@ -1,10 +1,8 @@
-package com.telran.contact;
+package com.telran.contact.tests;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.testng.annotations.Test;
-
-import java.util.concurrent.TimeUnit;
 
 public class OpenHomePageTest extends TestBase {
 
@@ -16,22 +14,8 @@ public class OpenHomePageTest extends TestBase {
         // xpath //div[2]/div/div css div:nth-child(2)>div>div
         //isHomeComponentPresent2(div:nth-child(2)>div>div);
         //isElementPresent(By.cssSelector("div:nth-child(2)>div>div"));
-        isHomeComponentPresent();
-        System.out.println("Home Component:" + isElementPresent(By.cssSelector("div:nth-child(2)>div>div")));
+        app.getHomePage().isHomeComponentPresent();
+        // System.out.println("Home Component:" + app.isElementPresent(By.cssSelector("div:nth-child(2)>div>div")));
     }
 
-
-
-    public boolean isHomeComponentPresent1(){
-       return driver.findElements(By.cssSelector("div:nth-child(2)>div>div")).size()>0;
-    }
-
-    public boolean isHomeComponentPresent2(){
-       try{
-           driver.findElement(By.cssSelector("div:nth-child(2)>div>div"));
-           return true;
-       } catch (NoSuchElementException e) {
-           return false;
-       }
-    }
 }
