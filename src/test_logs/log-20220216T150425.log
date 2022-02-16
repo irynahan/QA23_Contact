@@ -1,0 +1,3 @@
+4318 [Test worker] INFO  com.telran.contact.tests.TestBase - Start test addContactPositiveTest
+19675 [Test worker] INFO  com.telran.contact.tests.TestBase - Stop test addContactPositiveTest
+19690 [Test worker] INFO  com.telran.contact.tests.TestBase - ________________________

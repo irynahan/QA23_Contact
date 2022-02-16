@@ -16,7 +16,7 @@ public class CreateAccountTests extends TestBase {
         }
     }
 
-    @Test
+    @Test(enabled = false)
 
     public void registrationPositiveTest() {
         //test: click on login tab
@@ -24,7 +24,7 @@ public class CreateAccountTests extends TestBase {
         app.getUser().clickOnLogInTab();
         app.getUser().isRegistrationFormPresent();
         //fill in registration form
-        app.getUser().fillRegistrationLoginForm(new User().setEmail("limmo12@gmail.com").setPassword("Zz1234567$"));
+        app.getUser().fillRegistrationLoginForm(new User().setEmail("limmo22@gmail.com").setPassword("Zz1234567$"));
         // click on Registration button
         app.getUser().clickOnRegistrationButton();
         // check log out button displayed
@@ -32,7 +32,6 @@ public class CreateAccountTests extends TestBase {
     }
 
     @Test
-
     public void registrationNegativeWithoutPasswordTest() {
         //test: click on login tab
         //driver.findElement(By.xpath("//a[contains(.,'LOGIN')]")).click();

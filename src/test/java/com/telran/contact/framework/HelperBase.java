@@ -64,4 +64,22 @@ public class HelperBase {
         element.click();
     }
 
+    public void isElementVisible(By locator, int time){
+        new WebDriverWait(driver,time).until(ExpectedConditions.visibilityOf(driver.findElement(locator)));
+    }
+
+    public boolean isTextContainsInElement(By locator, int time, String text) {
+        return new WebDriverWait(driver, time).until(ExpectedConditions.textToBePresentInElement(driver.findElement(locator), text));
+    }
+
+    public void pause(int millis) {
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
 }
